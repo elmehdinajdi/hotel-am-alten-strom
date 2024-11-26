@@ -442,141 +442,48 @@ h1, h2, h3, h4 {
 }
 
 /* Custom Button Styles */
-.btn-primary {
-    width: 175px;
-    height: 52px;
-    padding: 0 30px;
-    background: #D7C063;
+.btn-primary, .btn-secondary, .btn-white {
     display: inline-flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 12px 24px;
     text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
     transition: all 0.3s ease;
-    border-radius: 0;
-    white-space: nowrap;
 }
 
-.btn-primary span {
+.btn-primary span, .btn-secondary span, .btn-white span {
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: #D7C063;
     color: #1C3144;
-    font-size: 17px;
-    font-family: Calibri;
-    font-weight: 700;
-    text-transform: uppercase;
-    white-space: nowrap;
-    line-height: 1;
-}
-
-.btn-primary .arrow {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #1C3144;
-    border-top: 2px solid #1C3144;
-    transform: rotate(45deg);
-    margin-left: 10px;
-    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background: #1C3144;
-}
-
-.btn-primary:hover span {
     color: white;
-}
-
-.btn-primary:hover .arrow {
-    border-color: white;
 }
 
 .btn-secondary {
-    width: 175px;
-    height: 52px;
-    padding: 0 30px;
     background: #1C3144;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-radius: 0;
-    white-space: nowrap;
-}
-
-.btn-secondary span {
     color: white;
-    font-size: 17px;
-    font-family: Calibri;
-    font-weight: 700;
-    text-transform: uppercase;
-    white-space: nowrap;
-    line-height: 1;
-}
-
-.btn-secondary .arrow {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid white;
-    border-top: 2px solid white;
-    transform: rotate(45deg);
-    margin-left: 10px;
-    transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
     background: #D7C063;
-}
-
-.btn-secondary:hover span {
     color: #1C3144;
-}
-
-.btn-secondary:hover .arrow {
-    border-color: #1C3144;
 }
 
 .btn-white {
-    width: 175px;
-    height: 52px;
-    padding: 0 30px;
     background: white;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-radius: 0;
-    white-space: nowrap;
-}
-
-.btn-white span {
     color: #1C3144;
-    font-size: 17px;
-    font-family: Calibri;
-    font-weight: 700;
-    text-transform: uppercase;
-    white-space: nowrap;
-    line-height: 1;
-}
-
-.btn-white .arrow {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #1C3144;
-    border-top: 2px solid #1C3144;
-    transform: rotate(45deg);
-    margin-left: 10px;
-    transition: all 0.3s ease;
 }
 
 .btn-white:hover {
     background: #D7C063;
-}
-
-.btn-white:hover .arrow {
-    border-color: #1C3144;
+    color: #1C3144;
 }
 
 /* Navigation Button */
@@ -612,9 +519,9 @@ h1, h2, h3, h4 {
     .btn-primary,
     .btn-secondary,
     .btn-white {
-        width: auto;
-        min-width: 175px;
-        padding: 0 30px;
+        width: 100%;
+        max-width: 175px;
+        margin: 10px auto;
     }
 }
 
@@ -711,14 +618,6 @@ h1, h2, h3, h4 {
         font-size: 32px;
     }
     
-    .btn-primary,
-    .btn-secondary,
-    .btn-white {
-        width: 100%;
-        max-width: 175px;
-        margin: 10px auto;
-    }
-
     .contact-cta {
         flex-direction: column;
         align-items: center;
