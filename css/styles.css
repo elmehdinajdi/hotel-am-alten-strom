@@ -1,0 +1,726 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    line-height: 1.6;
+    color: #1C3144;
+    background: #FCFCFC;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Castoro Titling', serif;
+    font-weight: normal;
+}
+
+/* Top Bar */
+.top-bar {
+    background: #1C3144;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-info img {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+}
+
+.language-switch a {
+    color: white;
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+.language-switch a.active {
+    color: #D7C063;
+}
+
+/* Main Header */
+.main-header {
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    padding: 15px 0;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #1C3144;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #1C3144;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #D7C063;
+}
+
+.booking-button a {
+    background: #D7C063;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.booking-button a:hover {
+    background: #1C3144;
+    color: white;
+}
+
+.booking-button .btn-primary {
+    margin: 0;
+    height: 52px;
+    padding: 0 30px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider {
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+}
+
+.slide-content h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.5s;
+}
+
+.slide-content p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.7s;
+}
+
+.slide-content .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.9s;
+}
+
+.slide.active .slide-content h2,
+.slide.active .slide-content p,
+.slide.active .slide-content .cta-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    z-index: 2;
+}
+
+.slide-progress {
+    width: 100px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-progress::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    background: white;
+    animation: slideProgress 5s linear infinite;
+}
+
+@keyframes slideProgress {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Welcome Section */
+.welcome {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.separator {
+    width: 100px;
+    height: 2px;
+    background: #D7C063;
+    margin: 0 auto;
+}
+
+.welcome-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.text-content {
+    font-size: 18px;
+}
+
+.text-link {
+    display: inline-block;
+    color: #D7C063;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Rooms Section */
+.rooms {
+    padding: 100px 0;
+    background: #F5F5F5;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.room-card {
+    background: white;
+    overflow: hidden;
+}
+
+.room-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.room-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.room-link {
+    display: inline-block;
+    color: #D7C063;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.room-card .btn-white {
+    margin-top: 20px;
+}
+
+/* Highlights Section */
+.highlights {
+    padding: 100px 0;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.highlight-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.highlight-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.highlight-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.highlight-link {
+    color: #D7C063;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.highlight-content .btn-white {
+    margin-top: 20px;
+}
+
+/* Services Section */
+.services {
+    padding: 100px 0;
+    background: #1C3144;
+    color: white;
+}
+
+.services .section-header h2 {
+    color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.service-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    filter: invert(1);
+}
+
+.service-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.service-item .btn-secondary {
+    margin-top: 15px;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    width: 175px;
+    height: 52px;
+    padding: 0 30px;
+    background: #D7C063;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.btn-primary span {
+    color: #1C3144;
+    font-size: 17px;
+    font-family: Calibri;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.btn-primary .arrow {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #1C3144;
+    border-top: 2px solid #1C3144;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #1C3144;
+}
+
+.btn-primary:hover span {
+    color: white;
+}
+
+.btn-primary:hover .arrow {
+    border-color: white;
+}
+
+.btn-secondary {
+    width: 175px;
+    height: 52px;
+    padding: 0 30px;
+    background: #1C3144;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.btn-secondary span {
+    color: white;
+    font-size: 17px;
+    font-family: Calibri;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.btn-secondary .arrow {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #D7C063;
+}
+
+.btn-secondary:hover span {
+    color: #1C3144;
+}
+
+.btn-secondary:hover .arrow {
+    border-color: #1C3144;
+}
+
+.btn-white {
+    width: 175px;
+    height: 52px;
+    padding: 0 30px;
+    background: white;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.btn-white span {
+    color: #1C3144;
+    font-size: 17px;
+    font-family: Calibri;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.btn-white .arrow {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #1C3144;
+    border-top: 2px solid #1C3144;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+    background: #D7C063;
+}
+
+.btn-white:hover .arrow {
+    border-color: #1C3144;
+}
+
+/* Navigation Button */
+.booking-button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 52px;
+    background: #D7C063;
+    color: #1C3144;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.booking-button .btn-primary {
+    margin: 0;
+    height: 52px;
+    padding: 0 30px;
+    border-radius: 0;
+}
+
+.booking-button a:hover {
+    background: #1C3144;
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-white {
+        width: auto;
+        min-width: 175px;
+        padding: 0 30px;
+    }
+}
+
+/* Contact Section */
+.contact-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Footer */
+.main-footer {
+    background: #D7C063;
+    padding: 60px 0;
+    color: #1C3144;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column a {
+    color: #1C3144;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: #1C3144;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .slide-content h2 {
+        font-size: 40px;
+    }
+    
+    .welcome-content,
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav ul {
+        display: none;
+    }
+    
+    .rooms-grid,
+    .services-grid,
+    .footer-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide-content h2 {
+        font-size: 32px;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-white {
+        width: 100%;
+        max-width: 175px;
+        margin: 10px auto;
+    }
+
+    .contact-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+}
